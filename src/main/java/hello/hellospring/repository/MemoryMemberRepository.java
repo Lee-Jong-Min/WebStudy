@@ -38,6 +38,12 @@ public class MemoryMemberRepository implements MemberRepository{
         return new ArrayList<>(store.values());
     }
 
+    @Override
+    public Member update(Member member, String name){
+        member.setName(name);
+        store.put(member.getId(),member);
+        return member;
+    }
     public void clearStore() {
         store.clear();
     }
